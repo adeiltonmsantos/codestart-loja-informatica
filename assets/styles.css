@@ -1,0 +1,174 @@
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+img{
+    max-width: 100%;
+}
+
+.container{
+    max-width: 140rem;
+    padding: 0 2rem;
+    margin: 1rem auto;
+}
+
+/* Header styles */
+header{
+    background-color: #000;
+    padding: 0.8rem 0 2rem 0;
+    color: #fff;
+}
+
+.info-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.opening-hours span, .our-address{
+    color: #A2A6B0;
+    padding-right: 0.5rem;
+}
+
+.our-address span{
+    color: #fff;
+    border-bottom: 0.2rem solid #fff;
+    padding: 0.3rem;
+}
+
+.store-contacts{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navigation-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.menu ul{
+    display: flex;
+    list-style: none;
+    padding: 0 1rem;
+}
+
+.menu ul li{
+    margin-right: 2rem;
+}
+
+.menu ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 1s;
+}
+
+.menu ul li a:hover{
+    color: #0156FF;
+}
+
+.menu ul li:last-child a{
+    border: 0.2rem solid #0156FF;
+    border-radius: 2rem;
+    padding: 0.8rem 2.5rem;
+    color: #0156FF;
+    transition: none;
+}
+
+.menu ul li:last-child a:hover{
+    color: #fff;
+    border: 0.2rem solid #fff;
+}
+
+.mobile-menu-icon{
+    display: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #A2A6B0;
+}
+
+.action-icons{
+    display: flex;
+    gap: 2rem;
+}
+
+.search{
+    cursor: pointer;
+}
+
+.cart{
+    position: relative;
+    cursor: pointer;
+}
+
+.itens-cart{
+    height: 1rem;
+    width: 1rem;
+    background-color: #0156FF;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -1rem;
+    right: -1.2rem
+}
+
+/* Medium screens */
+@media screen and (max-width: 1200px){
+    .info-header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .mobile-menu-icon{
+        display: block;
+    }
+
+    .action-icons{
+        position: relative;
+    }
+
+    .mobile-menu-open{
+        display: block;
+        position: absolute;
+        top: 15rem;
+        right: 4rem;
+        background-color: #333;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        z-index: 2;
+    }
+
+    .mobile-menu-open ul{
+        flex-direction: column
+    }
+
+    .mobile-menu-open ul li{
+        margin-bottom: 1.5rem;
+    }
+
+    .mobile-menu-open ul li:last-child{
+        margin-top: 1rem;
+    }
+}
