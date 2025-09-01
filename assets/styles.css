@@ -128,6 +128,120 @@ header{
     right: -1.2rem
 }
 
+/* New products styles */
+.new-prodcuts{
+    margin: 3rem 0;
+}
+
+.header-new-products{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.header-new-products h1{
+    font-weight: bold;
+}
+
+.header-new-products a{
+    color: #0156FF;
+    font-size: 1.3rem;;
+}
+
+.general-content-card-products{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-new-product{
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.card-new-product:hover{
+    cursor: pointer;
+    background-color: #A2A6B070;
+    border-radius: 1rem;
+}
+
+.stock{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.stock-icon{
+    height: 1rem;
+}
+
+.stock p{
+    font-size: 1.2rem;
+}
+
+.in-stock{
+    color: #78A962;
+}
+
+.out-stock{
+    color: #C94D3F;
+}
+
+.img-product{
+    display: block;
+    margin: 0 auto;
+}
+
+.product-review{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.product-review p{
+    font-size: 1.2rem;
+    color: #A2A6B0;
+    border-bottom: 0.1rem solid #A2A6B0;
+}
+
+.info-product{
+    margin-top: 2rem;
+}
+
+.info-product h3{
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.old-price{
+    font-size: 1.4rem;
+    color: #666666;
+    text-decoration: line-through;
+}
+
+.new-price{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Products styles */
+.prodcut-filter-brands ul{
+    display: flex;
+}
+
+.prodcut-filter-brands ul li{
+    list-style: none;
+    margin-right: 2rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #838383;
+}
+
+.prodcut-filter-brands ul li.product-brand-active{
+    border-bottom: 0.2rem solid #0156FF;
+    color: #000;
+}
+
+
 /* Medium screens */
 @media screen and (max-width: 1200px){
     .info-header{
@@ -170,5 +284,18 @@ header{
 
     .mobile-menu-open ul li:last-child{
         margin-top: 1rem;
+    }
+
+    .general-content-card-products{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .general-content-card-products{
+        display: flex;
+        flex-direction: column;
+        align-items: center
     }
 }
