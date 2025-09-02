@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slider de Patrocinadores</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset básico (opcional, mas recomendado) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Importante para a largura e altura */
+        }
+
+        .slider-sponsors {
+            width: 80%; /* Largura do slider */
+            margin: 20px auto; /* Centraliza na página */
+            overflow: hidden; /* Esconde as imagens que "saem" da div */
+            position: relative; /* Para posicionar as imagens dentro */
+        }
+
+        .slider-sponsors img {
+            width: 20%; /* Cada imagem ocupa 20% da largura do slider */
+            float: left; /* Coloca as imagens lado a lado */
+            /* Remova a linha abaixo:
+            transition: transform 0.5s ease-in-out; */
+        }
+
+        /* Criação da animação */
+        @keyframes slide {
+            0% {
+                transform: translateX(0); /* Primeira imagem visível */
+            }
+            10% {
+                transform: translateX(0); /* Manter a primeira imagem visível um pouco */
+            }
+            20% {
+                transform: translateX(-100%); /* Segunda imagem visível */
+            }
+            30% {
+                transform: translateX(-100%); /* Manter a segunda imagem visível */
+            }
+            40% {
+                transform: translateX(-200%); /* Terceira imagem visível */
+            }
+            50% {
+                transform: translateX(-200%); /* Manter a terceira imagem visível */
+            }
+            60% {
+                transform: translateX(-300%); /* Quarta imagem visível */
+            }
+            70% {
+                transform: translateX(-300%); /* Manter a quarta imagem visível */
+            }
+            80% {
+                transform: translateX(-400%); /* Quinta imagem visível */
+            }
+            90% {
+                transform: translateX(-400%); /* Manter a quinta imagem visível */
+            }
+            100% {
+                transform: translateX(0); /* Volta para a primeira imagem (mas agora à esquerda) */
+            }
+        }
+
+        .slider-sponsors {
+            animation: slide 20s infinite linear; /* Aplica a animação ao slider. Adicionado o linear para manter a velocidade consistente */
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-sponsors">
+        <img src="assets/sponsors/sponsor-1.svg" alt="Patrocinador 1">
+        <img src="assets/sponsors/sponsor-2.svg" alt="Patrocinador 2">
+        <img src="assets/sponsors/sponsor-3.svg" alt="Patrocinador 3">
+        <img src="assets/sponsors/sponsor-4.svg" alt="Patrocinador 4">
+        <img src="assets/sponsors/sponsor-5.svg" alt="Patrocinador 5">
+    </div>
+</body>
+</html>

@@ -241,6 +241,47 @@ header{
     color: #000;
 }
 
+.notebooks-products, .cpu-products, .monitor-products{
+    display: flex;
+    margin-top: 3rem;
+}
+
+.product-cover{
+    margin-right: 2rem;
+}
+
+.product-cover img{
+    height: fit-content;
+    width: 30rem;
+}
+
+/* Sponsors slider styles */
+.content-sponsors{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 15rem;
+}
+
+.slider-sponsors{
+    display: flex;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+.slider-sponsors img{
+    max-width: 100%;
+    height: auto;
+    margin-right: 2rem;
+}
 
 /* Medium screens */
 @media screen and (max-width: 1200px){
