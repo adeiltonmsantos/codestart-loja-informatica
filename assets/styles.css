@@ -256,32 +256,38 @@ header{
 }
 
 /* Sponsors slider styles */
-.content-sponsors{
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 15rem;
-}
-
-.slider-sponsors{
-    display: flex;
-    animation: scroll 10s linear infinite;
-}
-
 @keyframes scroll{
     0%{
-        transform: translateX(0);
+        transform: translateX(0%);
     }
     100%{
         transform: translateX(-100%);
     }
 }
 
-.slider-sponsors img{
-    max-width: 100%;
-    height: auto;
-    margin-right: 2rem;
+#sponsors .container{
+    display: flex;
+    justify-content: center;
 }
+
+.content-sponsors{
+    overflow: hidden;
+    width: 140rem;
+    height: 15rem;
+}
+
+.slider-sponsors{
+    position: relative;
+    display: flex;
+    /* width: 200rem; */
+    animation: scroll 10s linear infinite;
+}
+
+.slider-sponsors img{
+    width: 20rem;
+    height: 15rem;
+}
+
 
 /* Medium screens */
 @media screen and (max-width: 1200px){
