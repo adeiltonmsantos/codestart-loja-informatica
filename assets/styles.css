@@ -288,6 +288,40 @@ header{
     height: 15rem;
 }
 
+/* Testimonials styles */
+.content-testimonial{
+    background-color: #F5F7FF;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem;
+}
+
+.name-testimonial{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.controls-testimonial{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+
+.controls-testimonial span{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: #CACDD8;
+    cursor: pointer;
+}
+
+.controls-testimonial span.active-testimonial, .active-testimonial{
+    background-color: #0156FF;
+}
+
 
 /* Medium screens */
 @media screen and (max-width: 1200px){

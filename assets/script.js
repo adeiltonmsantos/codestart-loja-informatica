@@ -54,6 +54,33 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 })
 
+// Testimonials slider
+window.addEventListener("DOMContentLoaded", () => {
+    const testimonials = document.querySelectorAll('.testimonial');
+    const controls = document.querySelectorAll('.controls-testimonial span');
+    const firstTestimonial = testimonials[0];
+    const firstControl = controls[0];
+    // firstControl.classList.add("active-testimomial");
+    
+    testimonials.forEach(testimonial => testimonial.style.display = 'none');
+    firstTestimonial.style.display = 'block';
+    
+    controls.forEach(control => {
+        control.addEventListener("click", () => {
+            // const targetSlide = control.getAttribute('data-slide');
+            controls.forEach(c => c.classList.remove('active-testimomial'));
+            // control.classList.add('active-testimonial');
+            debugger;
+            // testimonials.forEach(testimonial => testimonial.style.display = 'none');
+
+            // const testimonialActive = document.querySelector(`.testimonial[data-slide="${targetSlide}"]`);
+
+            // testimonialActive.style.display = 'block';
+        });
+    });
+    // firstControl.classList.add("active-testimomial");
+})
+
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {
 //     const slider = document.querySelector(".slider-sponsors");
