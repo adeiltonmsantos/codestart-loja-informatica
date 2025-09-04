@@ -60,26 +60,49 @@ window.addEventListener("DOMContentLoaded", () => {
     const controls = document.querySelectorAll('.controls-testimonial span');
     const firstTestimonial = testimonials[0];
     const firstControl = controls[0];
-    // firstControl.classList.add("active-testimomial");
+    firstControl.classList.add("active-testimomial");
     
     testimonials.forEach(testimonial => testimonial.style.display = 'none');
     firstTestimonial.style.display = 'block';
     
     controls.forEach(control => {
         control.addEventListener("click", () => {
-            // const targetSlide = control.getAttribute('data-slide');
-            controls.forEach(c => c.classList.remove('active-testimomial'));
-            // control.classList.add('active-testimonial');
-            debugger;
-            // testimonials.forEach(testimonial => testimonial.style.display = 'none');
+            const targetSlide = control.getAttribute('data-slide');
+            controls.forEach(c => c.className = "");
+            control.classList.add('active-testimonial');
+            testimonials.forEach(testimonial => testimonial.style.display = 'none');
 
-            // const testimonialActive = document.querySelector(`.testimonial[data-slide="${targetSlide}"]`);
+            const testimonialActive = document.querySelector(`.testimonial[data-slide="${targetSlide}"]`);
 
-            // testimonialActive.style.display = 'block';
+            testimonialActive.style.display = 'block';
         });
     });
-    // firstControl.classList.add("active-testimomial");
 })
+
+// Cart handling
+const productsArray = [];
+
+function increaseQuantity(event){
+    const quantityElement = event.target.parentElement.querySelector('.number-quantity');
+    const quantity = parseInt(quantityElement.textContent);
+    quantityElement.textContent = quantity + 1;    
+}
+
+function decreaseQuantity(event){
+    const quantityElement = event.target.parentElement.querySelector('.number-quantity');
+    const quantity = parseInt(quantityElement.textContent);
+    if(quantity >= 1){
+        quantityElement.textContent = quantity - 1;
+    }
+}
+
+const increaseButtons = document.querySelectorAll('.increase-quantity');
+const decreaseButtons = document.querySelectorAll('.decrease-quantity')
+
+increaseButtons.forEach(button => button.addEventListener('click', increaseQuantity));
+decreaseButtons.forEach(button => button.addEventListener('click', decreaseQuantity));
+
+
 
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {
