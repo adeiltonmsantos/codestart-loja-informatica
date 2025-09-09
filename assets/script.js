@@ -91,7 +91,7 @@ function increaseQuantity(event){
 function decreaseQuantity(event){
     const quantityElement = event.target.parentElement.querySelector('.number-quantity');
     const quantity = parseInt(quantityElement.textContent);
-    if(quantity >= 1){
+    if(quantity > 0){
         quantityElement.textContent = quantity - 1;
     }
 }
