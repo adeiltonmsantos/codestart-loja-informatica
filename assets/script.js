@@ -96,6 +96,11 @@ function decreaseQuantity(event){
     }
 }
 
+function updateCart(){
+    const cart = document.querySelector('.itens-cart');
+    cart.textContent = productsArray.length;
+}
+
 function addProductToCart(event){
     const productCard = event.target.closest('.card-new-product');
     const productName = productCard.querySelector('.info-product h3').textContent;
@@ -106,9 +111,6 @@ function addProductToCart(event){
     let quantity = parseInt(quantityElement.textContent);
 
     const existingProductIndex = productsArray.findIndex(product => product.productName === productName);
-
-    console.log(existingProductIndex, 'existingProductIndex');
-
 
     if(quantity > 0){
         if(existingProductIndex !== -1){
@@ -128,8 +130,7 @@ function addProductToCart(event){
         }
     }
 
-    console.log(productsArray);
-
+    updateCart();
 }
 
 const increaseButtons = document.querySelectorAll('.increase-quantity');

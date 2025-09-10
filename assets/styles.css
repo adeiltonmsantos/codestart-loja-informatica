@@ -373,6 +373,35 @@ header{
     background-color: #0156FF;
 }
 
+/* Qualidade */
+.info-quality{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4rem;
+}
+
+.card-quality{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.card-quality h1{
+    font-size: 1.8rem;
+}
+
+.card-quality h2{
+    width: 30rem;
+    font-size: 1.4rem;
+    color: #00000080;
+    font-weight: normal;
+}
+
+
 
 /* Medium screens */
 @media screen and (max-width: 1200px){
