@@ -96,12 +96,49 @@ function decreaseQuantity(event){
     }
 }
 
+function addProductToCart(event){
+    const productCard = event.target.closest('.card-new-product');
+    const productName = productCard.querySelector('.info-product h3').textContent;
+    const priceText = productCard.querySelector('.new-price').textContent;
+    const price = parseFloat(priceText.replace('R$', ''));
+
+    const quantityElement = productCard.querySelector('.number-quantity');
+    let quantity = parseInt(quantityElement.textContent);
+
+    const existingProductIndex = productsArray.findIndex(product => product.productName === productName);
+
+    console.log(existingProductIndex, 'existingProductIndex');
+
+
+    if(quantity > 0){
+        if(existingProductIndex !== -1){
+            productsArray[existingProductIndex].quantity = quantity;
+        }else{
+            productsArray.push(
+                {
+                    productName: productName,
+                    price: price,
+                    quantity: quantity
+                }
+            );
+        }
+    }else{
+        if(existingProductIndex !== -1){
+            productsArray.splice(existingProductIndex, 1);
+        }
+    }
+
+    console.log(productsArray);
+
+}
+
 const increaseButtons = document.querySelectorAll('.increase-quantity');
-const decreaseButtons = document.querySelectorAll('.decrease-quantity')
+const decreaseButtons = document.querySelectorAll('.decrease-quantity');
+const addCartButtons = document.querySelectorAll('.confirm-add-cart');
 
 increaseButtons.forEach(button => button.addEventListener('click', increaseQuantity));
 decreaseButtons.forEach(button => button.addEventListener('click', decreaseQuantity));
-
+addCartButtons.forEach(button => button.addEventListener('click', addProductToCart));
 
 
 // Sponsors slider
