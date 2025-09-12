@@ -383,7 +383,7 @@ header{
 .card-quality{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     gap: 1.5rem;
