@@ -401,6 +401,94 @@ header{
     font-weight: normal;
 }
 
+/* Form styles */
+.content-contact-form{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+.text-forms-contact h1{
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-contact-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.line-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.group-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.group-form label{
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.group-form label span{
+    color: #C94D3F;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea{
+    border: 1px solid #a2b6c0;
+    outline: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+textarea{
+    width: 100%;
+    height: 10rem;
+}
+
+input[type="submit"]{
+    background-color: #0156FF;
+    border: none;
+    padding: 1rem 3.5rem;
+    margin: 0;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3rem;
+    margin-top: 3rem;
+}
+
+.infos-contact{
+    background-color: #F5F7FF;
+    padding: 5.5rem 3.5rem;
+    height: 40rem;
+}
+
+.line-contact-info{
+    display: flex;
+    gap: 2rem;
+}
+
+.line-contact-info h3{
+    margin-top: 1.5rem;
+}
+
+.line-contact-info h4{
+    font-weight: normal;
+    font-size: 1.3rem;
+}
 
 
 /* Medium screens */
@@ -450,6 +538,25 @@ header{
     .general-content-card-products{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info-quality{
+        grid-template-columns: 1fr;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .content-contact-form{
+        grid-template-columns: 1fr;
+    }
+
+    .line-form{
+        grid-template-columns: 1fr;
+    }
+
+    .infos-contact{
+        width: 40rem;
+        margin: 0 auto;
     }
 }
 
