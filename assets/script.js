@@ -141,6 +141,25 @@ increaseButtons.forEach(button => button.addEventListener('click', increaseQuant
 decreaseButtons.forEach(button => button.addEventListener('click', decreaseQuantity));
 addCartButtons.forEach(button => button.addEventListener('click', addProductToCart));
 
+// Carrinho
+const inputCep = document.querySelector('#cep');
+
+function searchCep(){
+    const typedCep = inputCep.value.trim().replace(/\D/g, '');
+    url = `https://viacep.com.br/ws/${typedCep}/json/`;
+    fetch(url).then(response => {
+        if(!response.ok){
+            console.error('Não foi possível obter os dados do CEP')
+        }
+        else{
+            return response.json();
+        }
+    }).then(data => {
+        console.log(data);
+
+    })
+}
+
 
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {

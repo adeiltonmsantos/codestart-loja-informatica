@@ -402,18 +402,18 @@ header{
 }
 
 /* Form styles */
-.content-contact-form{
+.general-content-form{
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 4rem;
 }
 
-.text-forms-contact h1{
+.titles-form h1{
     font-size: 3.2rem;
     margin-bottom: 1.5rem;
 }
 
-.info-contact-form{
+.info-content-form{
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
@@ -421,7 +421,7 @@ header{
 
 .line-form{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column dense;
     gap: 2rem;
     margin: 1rem 0;
 }
@@ -516,9 +516,13 @@ footer .container{
 }
 
 .input-newsletter{
-    width: 30rem;;
+    width: 30rem;
     margin-right: 2rem;
     color: #fff;
+}
+
+.input-newsletter input{
+    margin: 0;
 }
 
 .input-form-newsletter{
@@ -552,6 +556,47 @@ footer .container{
     margin-top: 5rem;
 }
 
+/* Cart page styles */
+.breadcrumb{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb li{
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.breadcrumb li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.breadcrumb li:last-child{
+    font-weight: bold;
+}
+
+.breadcrumb li:not(:last-child)::after{
+    content: " > ";
+    color: #777
+}
+
+.input-cep{
+    position: relative;
+}
+
+.search-cep{
+    position: absolute;
+    top: 4rem;
+    right: 1.5rem;
+    background-color: #0156FF;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
 
 /* Medium screens */
 @media screen and (max-width: 1200px){
@@ -608,11 +653,12 @@ footer .container{
         text-align: center;
     }
 
-    .content-contact-form{
+    .general-content-form{
         grid-template-columns: 1fr;
     }
 
     .line-form{
+        grid-auto-flow: unset;
         grid-template-columns: 1fr;
     }
 
@@ -638,7 +684,9 @@ footer .container{
     }
 
     .additional-infos-footer{
-        
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 }
 
