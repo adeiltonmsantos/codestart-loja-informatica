@@ -104,11 +104,11 @@
                                     </div>
                                     <div class="group-form">
                                         <label for="">Cidade<span>*</span></label>
-                                        <input type="text" name="cidade" id="cidade" placeholder="Cidade">
+                                        <input type="text" name="city" id="city" placeholder="Cidade">
                                     </div>
                                     <div class="group-form">
                                         <label for="">Estado<span>*</span></label>
-                                        <input type="text" name="estado" id="estado" placeholder="Estado">
+                                        <input type="text" name="state" id="state" placeholder="Estado">
                                     </div>
                                 </div>
                                 <div class="line-form">
@@ -126,15 +126,59 @@
                                         <input type="text" name="number" id="number" placeholder="Número/Complemento">
                                     </div>
                                 </div>
+                                <div class="line-form">
+                                    <div id="error-message">
+                                        Alguma mensagem aqui
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
+
+                    <div class="info-products-order">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Preço</th>
+                                    <th>Quant.</th>
+                                    <th>Sub-total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="product-cart">
+                                            <img src="assets/cpu-products/cpu-1.png" width="10rem" alt="">
+                                            <span>Título do produto escolhido</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        R$ 4.349,00
+                                    </td>
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        R$ 12.349,00
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="send-order">
+                            <input type="button" value="Limpar carrinho" \>
+                            <input type="button" value="Reservar pedido" \>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="quality">
+
+
+    <section id=" quality">
         <div class="container">
             <div class="info-quality">
                 <div class="card-quality">
@@ -150,7 +194,8 @@
                 <div class="card-quality">
                     <img src="assets/best-price.svg" alt="Melhor preço Code Start">
                     <h1>Melhor preço</h1>
-                    <h2>Todos os nossos produtos estão pelo menos 20% mais baratos do que os dos nossos concorrentes
+                    <h2>Todos os nossos produtos estão pelo menos 20% mais baratos do que os dos
+                        nossos concorrentes
                     </h2>
                 </div>
             </div>

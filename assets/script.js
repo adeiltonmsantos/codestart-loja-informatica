@@ -143,21 +143,39 @@ addCartButtons.forEach(button => button.addEventListener('click', addProductToCa
 
 // Carrinho
 const inputCep = document.querySelector('#cep');
+const inputStreet = document.querySelector('#street');
+const inputNumber = document.querySelector('#number');
+const inputNeighborhood = document.querySelector('#neighborhood');
+const inputCity = document.querySelector('#city');
+const inputState = document.querySelector('#state');
+const errorDiv = document.querySelector('#error-message');
+
 
 function searchCep(){
     const typedCep = inputCep.value.trim().replace(/\D/g, '');
     url = `https://viacep.com.br/ws/${typedCep}/json/`;
-    fetch(url).then(response => {
-        if(!response.ok){
-            console.error('Não foi possível obter os dados do CEP')
-        }
-        else{
+    fetch(url)
+        .then(response => {
             return response.json();
-        }
-    }).then(data => {
-        console.log(data);
-
-    })
+        })
+        .then(data => {
+            if(!data.erro){
+                console.log(data);
+                inputStreet.value = data.logradouro;
+                inputNeighborhood.value = data.bairro;
+                inputCity.value = data.localidade;
+                inputState.value = data.uf;
+                errorDiv.style.display = 'none';
+            }
+            else{
+                errorDiv.textContent = "CEP não encontrado. Verifique se você digitou corretamente."
+                errorDiv.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            errorDiv.textContent = "CEP não encontrado. Verifique se você digitou corretamente."
+            errorDiv.style.display = 'block';
+        });
 }
 
 

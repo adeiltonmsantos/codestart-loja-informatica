@@ -441,6 +441,17 @@ header{
     color: #C94D3F;
 }
 
+#error-message{
+    background-color: #ff000070;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1.2rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    display: none;
+}
+
+
 input[type="text"],
 input[type="email"],
 input[type="text"]:focus,
@@ -459,7 +470,7 @@ textarea{
     height: 10rem;
 }
 
-input[type="submit"]{
+input[type="submit"], input[type="button"]{
     background-color: #0156FF;
     border: none;
     padding: 1rem 3.5rem;
