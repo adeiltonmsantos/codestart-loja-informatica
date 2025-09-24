@@ -657,6 +657,42 @@ tbody tr td:first-child{
     width: 10rem;
 }
 
+.infos-order{
+    background-color: #F5F7FF;
+    padding: 5.5rem 3.5rem;
+    height: 40rem;
+}
+
+.infos-order h2{
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.infos-order h3{
+    font-size: 1.4rem;
+    color: #666666;
+    font-weight: normal;
+    margin-top: 1.5rem;
+    border-bottom: 0.1rem solid #CACDD8;
+    padding-bottom: 0.5rem;
+}
+
+.line-info-order{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.legend-order{
+    font-size: 1rem;
+    color: #a2a6b0
+}
+
+.total-order-value{
+    font-size: 1.8rem;
+}
 
 /* Medium screens */
 @media screen and (max-width: 1200px){

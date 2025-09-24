@@ -178,6 +178,10 @@ function searchCep(){
         });
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+    const tBody = document.querySelector('info-products-order tbody');
+    
+})
 
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {
