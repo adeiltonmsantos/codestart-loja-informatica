@@ -609,6 +609,55 @@ footer .container{
     cursor: pointer;
 }
 
+.info-products-order{
+    display: flex;
+    flex-direction: column;
+}
+
+.send-order{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 2rem
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4rem;
+    font-size: 1.4rem;
+}
+
+thead tr th, tbody tr td{
+    border-bottom: 0.1rem solid #CACDD8;
+    padding-bottom: 1rem;
+}
+
+thead tr th:first-child{
+    text-align: left;
+}
+
+tbody tr td{
+    text-align: center;
+    font-weight: bold;
+    padding: 2rem 0;
+}
+
+tbody tr td:first-child{
+    font-weight: normal;
+}
+
+.product-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-cart img{
+    width: 10rem;
+}
+
+
 /* Medium screens */
 @media screen and (max-width: 1200px){
     .info-header{
