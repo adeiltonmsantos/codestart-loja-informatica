@@ -105,6 +105,9 @@ function addProductToCart(event){
     const productCard = event.target.closest('.card-new-product');
     const productName = productCard.querySelector('.info-product h3').textContent;
     const priceText = productCard.querySelector('.new-price').textContent;
+    const productImg = productCard.querySelector(".img-product");
+    const srcProduct = productImg.getAttribute("src");
+
     const price = parseFloat(priceText.replace('R$', ''));
 
     const quantityElement = productCard.querySelector('.number-quantity');
@@ -120,6 +123,7 @@ function addProductToCart(event){
                 {
                     productName: productName,
                     price: price,
+                    productImg: srcProduct,
                     quantity: quantity
                 }
             );
@@ -129,6 +133,8 @@ function addProductToCart(event){
             productsArray.splice(existingProductIndex, 1);
         }
     }
+
+    localStorage.setItem('productsArray', JSON.stringify(productsArray))
 
     updateCart();
 }
@@ -149,6 +155,8 @@ const inputNeighborhood = document.querySelector('#neighborhood');
 const inputCity = document.querySelector('#city');
 const inputState = document.querySelector('#state');
 const errorDiv = document.querySelector('#error-message');
+const savedProductsArray = JSON.parse(localStorage.getItem('productsArray'));
+
 
 
 function searchCep(){
@@ -180,8 +188,37 @@ function searchCep(){
 
 window.addEventListener("DOMContentLoaded", () => {
     const tBody = document.querySelector('info-products-order tbody');
+
+    for(const product of savedProductsArray){
+        const row = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        nameCell.innerHTML = `
+            <div class="product-cart">
+                <img src="${product.productImg}" alt="${product.productName}">
+                <p>${product.productName}</p>
+                ${product.productName}
+            </div>
+        `;
+        const priceCell = document.createElement('td');
+        priceCell.textContent = `R$ ${product.price.toFixed(2)}`;
+        
+        const quantityCell = document.createElement('td');
+        quantityCell.textContent = product.quantity;
+
+        const subtotalCell = document.createElement('td');
+        subtotalCell.textContent = `R$ ${(product.price * product.quantity).toFixed(2)}`;
+
+        row.appendChild(nameCell);
+        row.appendChild(priceCell);
+        row.appendChild(quantityCell);
+        row.appendChild(subtotalCell);
+
+        tBody.appendChild(row);
+
+    }
     
 })
+
 
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {
