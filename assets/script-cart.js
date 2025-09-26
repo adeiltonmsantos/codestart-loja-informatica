@@ -75,7 +75,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
         }
         
-        function finalizarPedido(){
+        function clearCart(){
+            localStorage.removeItem('productsArray');
+            inputCep.value = '';
+            inputStreet.value = '';
+            inputCity.value = '';
+            inputState.value
+            inputNeighborhood.value = '';
+            inputNumber.value = '';
+            location.reload();
+        }
+
+        const btnResetCart = document.querySelector('#clearCart');
+        btnResetCart.addEventListener('click', clearCart);
+
+
+        function finishOrder(){
             const fullName = document.querySelector('#fullname').value;
             const rg = document.querySelector('#rg').value;
             const cpf = document.querySelector('#cpf').value;
@@ -117,6 +132,6 @@ window.addEventListener("DOMContentLoaded", () => {
         
         }
         
-        btnReserveOrder.addEventListener('click', finalizarPedido);
+        btnReserveOrder.addEventListener('click', finishOrder);
 
 })
