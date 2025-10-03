@@ -12,13 +12,17 @@ window.addEventListener("DOMContentLoaded", () => {
     const inputState = document.querySelector('#state');
     const errorDiv = document.querySelector('#error-message');
     const savedProductsArray = JSON.parse(localStorage.getItem('productsArray'));
-    const totalOrder = savedProductsArray.reduce(
-        (subtotal, currentProduct) => {
-            return subtotal + (currentProduct.price * currentProduct.quantity)
-        }, 0);
+    if(savedProductsArray){
+        const totalOrder = savedProductsArray.reduce(
+            (subtotal, currentProduct) => {
+                return subtotal + (currentProduct.price * currentProduct.quantity)
+            }, 0);
+    }
+    
     const btnReserveOrder = document.querySelector("#reserveOrder")
 
     function searchCep(){
+
         const typedCep = inputCep.value.trim().replace(/\D/g, '');
         url = `https://viacep.com.br/ws/${typedCep}/json/`;
         fetch(url)
@@ -43,10 +47,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 errorDiv.textContent = "CEP não encontrado. Verifique se você digitou corretamente."
                 errorDiv.style.display = 'block';
             });
-        }
+    }
+
+    const btnSearchCep = document.querySelector('.search-cep img');
+    btnSearchCep.addEventListener('click', searchCep);
     
-        const tBody = document.querySelector('.info-products-order tbody');
-        
+    const tBody = document.querySelector('.info-products-order tbody');
+    
+    if(savedProductsArray){
         for(const product of savedProductsArray){
             const row = document.createElement('tr');
             const nameCell = document.createElement('td');
@@ -74,64 +82,66 @@ window.addEventListener("DOMContentLoaded", () => {
             tBody.appendChild(row);
 
         }
-        
-        function clearCart(){
-            localStorage.removeItem('productsArray');
-            inputCep.value = '';
-            inputStreet.value = '';
-            inputCity.value = '';
-            inputState.value
-            inputNeighborhood.value = '';
-            inputNumber.value = '';
-            location.reload();
-        }
+    }
+    
+    
+    function clearCart(){
+        localStorage.removeItem('productsArray');
+        inputCep.value = '';
+        inputStreet.value = '';
+        inputCity.value = '';
+        inputState.value
+        inputNeighborhood.value = '';
+        inputNumber.value = '';
+        location.reload();
+    }
 
-        const btnResetCart = document.querySelector('#clearCart');
-        btnResetCart.addEventListener('click', clearCart);
+    const btnResetCart = document.querySelector('#clearCart');
+    btnResetCart.addEventListener('click', clearCart);
 
 
-        function finishOrder(){
-            const fullName = document.querySelector('#fullname').value;
-            const rg = document.querySelector('#rg').value;
-            const cpf = document.querySelector('#cpf').value;
-        
-            const cep = inputCep.value;
-            const street = inputStreet.value;
-            const city = inputCity.value;
-            const state = inputState.value;
-            const neighborhood = inputNeighborhood.value;
-            const number = inputNumber.value;
-        
-            let formattedText = `
-                Olá. Gostaria de fazer um pedido.
-                Meus dados são:
-                Nome: ${fullName}
-                RG: ${rg}
-                CPF: ${cpf}
-                CEP: ${cep}
-                Endereço: Rua ${street}, n.º ${number}, Bairro: ${neighborhood}, ${city}, ${state}
-                Os produtos que escolhi são:
-            `;
-        
-            savedProductsArray.forEach(product => {
-                formattedText += `
-                    Nome do produto: ${product.productName}
-                    Preço: R$ ${product.price}
-                    Quantidade: ${product.quantity}
-                `
-            });
-        
-            formattedText += `Total do pedido: R$ ${parseFloat(totalOrder)}`;
-        
-            // Encoding text because of special characters
-            const encodedText = encodeURIComponent(formattedText);
-        
-            // Sendind message to WhatsApp
-            url = `https://web.whatsapp.com/send?phone=${foneNumber}&text=${encodedText}`;
-            window.open(url, '_blank');
-        
-        }
-        
-        btnReserveOrder.addEventListener('click', finishOrder);
+    function finishOrder(){
+        const fullName = document.querySelector('#fullname').value;
+        const rg = document.querySelector('#rg').value;
+        const cpf = document.querySelector('#cpf').value;
+    
+        const cep = inputCep.value;
+        const street = inputStreet.value;
+        const city = inputCity.value;
+        const state = inputState.value;
+        const neighborhood = inputNeighborhood.value;
+        const number = inputNumber.value;
+    
+        let formattedText = `
+            Olá. Gostaria de fazer um pedido.
+            Meus dados são:
+            Nome: ${fullName}
+            RG: ${rg}
+            CPF: ${cpf}
+            CEP: ${cep}
+            Endereço: Rua ${street}, n.º ${number}, Bairro: ${neighborhood}, ${city}, ${state}
+            Os produtos que escolhi são:
+        `;
+    
+        savedProductsArray.forEach(product => {
+            formattedText += `
+                Nome do produto: ${product.productName}
+                Preço: R$ ${product.price}
+                Quantidade: ${product.quantity}
+            `
+        });
+    
+        formattedText += `Total do pedido: R$ ${parseFloat(totalOrder)}`;
+    
+        // Encoding text because of special characters
+        const encodedText = encodeURIComponent(formattedText);
+    
+        // Sendind message to WhatsApp
+        url = `https://web.whatsapp.com/send?phone=${foneNumber}&text=${encodedText}`;
+        window.open(url, '_blank');
+    
+    }
+    
+    btnReserveOrder.addEventListener('click', finishOrder);
 
 })
