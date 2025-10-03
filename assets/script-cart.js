@@ -1,6 +1,20 @@
 window.addEventListener("DOMContentLoaded", () => {
     // Cart handling
     const productsArray = [];
+    const neighborhoodShipment = [
+        {
+            neighborhood: 'Centro',
+            shipment: 150
+        },
+        {
+            neighborhood: 'Farol',
+            shipment: 100
+        },
+        {
+            neighborhood: 'Gruta',
+            shipment: 90
+        }
+    ];
     const foneNumber = '5582996252537'
 
     // Carrinho
