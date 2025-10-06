@@ -26,6 +26,18 @@ window.addEventListener("DOMContentLoaded", () => {
     const inputState = document.querySelector('#state');
     const errorDiv = document.querySelector('#error-message');
     const savedProductsArray = JSON.parse(localStorage.getItem('productsArray'));
+
+    const totalOrder = savedProductsArray ?
+        savedProductsArray.reduce((acumulator, currentProdutc) =>{
+            return acumulator + (currentProdutc.price * currentProdutc.quantity);
+        
+        }):0;
+    const subtotal = document.querySelector('#subtotal-value');
+    const shipmentInput = document.querySelector('#shipment-value');
+    const totalOrderField = document.querySelector('#total-order-value');
+
+    
+
     if(savedProductsArray){
         const totalOrder = savedProductsArray.reduce(
             (subtotal, currentProduct) => {
@@ -157,5 +169,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     
     btnReserveOrder.addEventListener('click', finishOrder);
+
+    function updateInfosOrder(){
+        if(subtotal){
+            subtotal.textContent = totalOrder;
+        }
+
+    }
 
 })
