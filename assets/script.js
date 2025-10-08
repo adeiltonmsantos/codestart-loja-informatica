@@ -5,10 +5,8 @@ document.addEventListener("DOMContentLoaded", function(){
     mobileMenuIcon.addEventListener('click', function(){
         menu.classList.toggle('mobile-menu-open');
     });
-})
 
 // Products Filter
-document.addEventListener("DOMContentLoaded", function(){
     const sections = document.querySelectorAll(".products-code-start");
 
     sections.forEach((section) => {
@@ -52,10 +50,8 @@ document.addEventListener("DOMContentLoaded", function(){
         updateCards();
     
     })
-})
 
 // Testimonials slider
-window.addEventListener("DOMContentLoaded", () => {
     const testimonials = document.querySelectorAll('.testimonial');
     const controls = document.querySelectorAll('.controls-testimonial span');
     const firstTestimonial = testimonials[0];
@@ -78,8 +74,33 @@ window.addEventListener("DOMContentLoaded", () => {
             testimonialActive.style.display = 'block';
         });
     });
-})
 
+    function scrollToSection(sectionId){
+        const section = document.querySelector(sectionId);
+
+        if(section){
+            let scrollOffSet = 0;
+
+            scrollOffSet = section.offsetTop - (window.innerHeight - section.clientHeight) / 2;
+
+            window.scrollTo({
+                top: scrollOffSet,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const sectionId = link.getAttribute("href");
+            scrollToSection(sectionId);
+        });
+    });
+
+})
 
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {

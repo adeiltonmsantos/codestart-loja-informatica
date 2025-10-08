@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     // Cart handling
     const productsArray = [];
 
@@ -304,7 +304,9 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    document.querySelector("#btnAddCuppon").addEventListener('click', addCuppon);
+    const btnAddCuppon = document.querySelector('#btnAddCuppon');
+    if(btnAddCuppon)
+        document.querySelector("#btnAddCuppon").addEventListener('click', addCuppon);
 
     function updateButtonSendOrder(){
         const input = document.querySelector("#reserveOrder");
