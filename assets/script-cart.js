@@ -83,6 +83,8 @@ window.addEventListener("DOMContentLoaded", () => {
     ];
     const foneNumber = '5582996252537'
 
+    let dataCartIsEmpty = true;
+
     // Carrinho
     const inputCep = document.querySelector('#cep');
     const inputStreet = document.querySelector('#street');
@@ -195,6 +197,7 @@ window.addEventListener("DOMContentLoaded", () => {
         inputState.value
         inputNeighborhood.value = '';
         inputNumber.value = '';
+        dataCartIsEmpty = true;
         location.reload();
     }
 
@@ -248,9 +251,9 @@ window.addEventListener("DOMContentLoaded", () => {
     if(btnReserveOrder)
         btnReserveOrder.addEventListener('click', finishOrder);
 
-    function updateInfosOrder(){
+    function updateInfosOrder(discount){
         if(subtotal){
-            subtotal.textContent = Number(totalOrder).toFixed(2);
+            subtotal.textContent = Number(totalOrder - discount).toFixed(2);
         }
 
         if(shipmentInput && totalOrderField && savedProductsArray.length > 0 && inputNeighborhood.value != ""){
@@ -262,7 +265,55 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     if(inputNeighborhood){
-        inputNeighborhood.addEventListener('change', updateInfosOrder);
+        inputNeighborhood.addEventListener('change', function(){
+            dataCartIsEmpty = false;
+            updateInfosOrder(0);
+            updateButtonSendOrder();
+        })
+    }
+
+    const avaliableCuppons = [
+        {
+            value: 'FREE10',
+            discount: 10
+        },
+        {
+            value: 'FREE20',
+            discount: 20
+        },
+        {
+            value: 'FREE30',
+            discount: 30
+        }
+    ]
+
+    function addCuppon(){
+        const inputCuppon = document.querySelector('#discount');
+        const validCuppon = avaliableCuppons.find(cuppon => cuppon.value === inputCuppon.value);
+        const textCuppon = document.querySelector('.cuppon-added span');
+        const errorCuppon = document.querySelector('.cuppon-error');
+
+        errorCuppon.style.display = 'none';
+
+        if(validCuppon){
+            textCuppon.textContent = validCuppon.value;
+            updateInfosOrder(validCuppon.discount)
+        }else{
+            errorCuppon.style.display = 'block';
+            updateInfosOrder(0);
+        }
+    }
+
+    document.querySelector("#btnAddCuppon").addEventListener('click', addCuppon);
+
+    function updateButtonSendOrder(){
+        const input = document.querySelector("#reserveOrder");
+        console.log(dataCartIsEmpty);
+        if(input && !dataCartIsEmpty){
+            input.classList.remove("disabled-send-order");
+        }else{
+            input.classList.add("disabled-send-order");
+        }
     }
 
 })

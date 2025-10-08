@@ -151,8 +151,9 @@
                             </tbody>
                         </table>
                         <div class="send-order">
-                            <input type="button" id="clearCart" value="Limpar carrinho" \>
-                            <input type="button" id="reserveOrder" value="Reservar pedido" \>
+                            <input type="button" id="clearCart" value="Limpar carrinho">
+                            <input type="button" id="reserveOrder" value="Reservar pedido" id="btnSendOrder"
+                                class="disabled-send-order">
                         </div>
                     </div>
 
@@ -163,12 +164,12 @@
                     <h3>Nesse resumo incluímos os preços dos itens com o frete</h3>
                     <div class="add-cuppon">
                         <input type="text" id="discount" placeholder="Adicione um cuppon">
-                        <input type="button" value="Adicionar" onclick="addCouppon()"><br>
-                        <span class="couppon-error">Cuoppon inexistente ou inválido</span>
-                        <div class="couppon-added">
-                            <h4>Couppon Adicionado</h4>
-                            <span></span>
-                        </div>
+                        <input type="button" id="btnAddCuppon" value="Adicionar cuppon">
+                    </div>
+                    <span class="cuppon-error">Cuppon inexistente ou inválido</span>
+                    <div class="cuppon-added">
+                        <h4>Cuppon Adicionado</h4>
+                        <span></span>
                     </div>
                     <div class="line-info-order">
                         <p>Subtotal</p>
@@ -189,6 +190,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
