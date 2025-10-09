@@ -100,6 +100,41 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     });
 
+    // Contact of site
+    const form = document.querySelector('form');
+    const sucessMessage = document.querySelector('#sucess-message');
+    const errorMessage = document.querySelector('#error-message')
+    const loading = document.querySelector('#loading');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.querySelector('#name').value;
+        const subject = document.querySelector('#subject').value;
+        const email = document.querySelector('#email').value;
+        const cellfone = document.querySelector('#cellfone').value;
+        const message = document.querySelector('#message').value;
+
+        form.style.display = 'none';
+        sucessMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+        loading.style.display = 'block';
+
+        const data ={
+            to: 'adeiltonmalafaia@gmail.com',
+            from: '',
+            subjetc: 'Contato do site',
+            message: 'Contato do site',
+            html: `
+                <p>Nome: ${name}</p><br>
+                <p>E-mail: ${email}</p><br>
+                <p>Celular: ${cellfone}</p><br>
+                <p>Assunto: ${subject}</p><br>
+                <p>Mensagem: ${message}</p>
+            `
+        };
+
+    });
+
 })
 
 // Sponsors slider
