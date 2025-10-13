@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     // Contact of site
-    const form = document.querySelector('form');
+    const form = document.querySelector('#contact form');
     const sucessMessage = document.querySelector('#sucess-message');
     const errorMessage = document.querySelector('#error-message')
     const loading = document.querySelector('#loading');
@@ -111,8 +111,21 @@ document.addEventListener("DOMContentLoaded", function(){
         const name = document.querySelector('#name').value;
         const subject = document.querySelector('#subject').value;
         const email = document.querySelector('#email').value;
-        const cellfone = document.querySelector('#cellfone').value;
+        const cellfone = document.querySelector('#cellphone').value;
         const message = document.querySelector('#message').value;
+
+        // EmailJS parameters
+        const SERVICE_ID = "service_xlmj3qu";
+        const TEMPLATE_ID = "template_mohzmh6";
+        const PUBLIC_KEY = "-j6Q3glibCsWMaqlL";
+
+        // Initializing EmailJS with public key
+        (function () {
+            emailjs.init({
+                publicKey: PUBLIC_KEY,
+            });
+        }
+        )();
 
         form.style.display = 'none';
         sucessMessage.style.display = 'none';
@@ -120,20 +133,33 @@ document.addEventListener("DOMContentLoaded", function(){
         loading.style.display = 'block';
 
         const data ={
-            to: 'adeiltonmalafaia@gmail.com',
-            from: 'adeiltonmalafaia@gmail.com',
-            subjetc: 'Contato do site',
-            message: 'Contato do site',
-            html: `
-                <p>Nome: ${name}</p><br>
-                <p>E-mail: ${email}</p><br>
-                <p>Celular: ${cellfone}</p><br>
-                <p>Assunto: ${subject}</p><br>
-                <p>Mensagem: ${message}</p>
+            name: name,
+            email: email,
+            subject: subject,
+            message: `
+                Nome: ${name}\n
+                E-mail: ${email}\n
+                Celular: ${cellfone}\n
+                Assunto: ${subject}\n
+                Mensagem: ${message}\n
             `
         };
 
-        emailjs
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, data)
+            .then(function (response) {
+                loading.style.display = 'none';
+                sucessMessage.style.display = 'block';
+            }, function (error) {
+                loading.style.display = 'none';
+                errorMessage.style.display = 'block';
+                console.error('Erro na resposta da API')
+            }).catch(function (error) {
+                loading.style.display = 'none';
+                errorMessage.style.display = 'block';
+                console.error(`Erro na resposta da API: ${error}`);
+            });
+
+        
 
     });
 
