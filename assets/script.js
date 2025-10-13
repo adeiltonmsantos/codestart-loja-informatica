@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         const data ={
             to: 'adeiltonmalafaia@gmail.com',
-            from: '',
+            from: 'adeiltonmalafaia@gmail.com',
             subjetc: 'Contato do site',
             message: 'Contato do site',
             html: `
@@ -133,9 +133,18 @@ document.addEventListener("DOMContentLoaded", function(){
             `
         };
 
+        emailjs
+
     });
 
+    // E-mail form data
+    // service_xlmj3qu
+    // Template id: template_mohzmh6
+    // Public key:  -j6Q3glibCsWMaqlL
+
+
 })
+
 
 // Sponsors slider
 // window.addEventListener("DOMContentLoaded", () => {
